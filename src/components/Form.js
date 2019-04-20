@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/form.css';
+import base from '../base';
 
 const Form = () => {
     const [firstName, setFirstName] = useState('');
@@ -19,9 +20,24 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
-
-        console.log(stringifyFormData(data));
-        resetForm();
+        const userId = Date.now();
+        const parsedData = JSON.parse(stringifyFormData(data));
+        Object.keys(parsedData).forEach(itemKey => {
+            const item = parsedData[itemKey];
+            if (item.length === 0) {
+                delete parsedData[itemKey];
+                
+            };
+        });
+        base.post(`users/${userId}`, { data: parsedData })
+            .then(() => {
+                alert('Form Submitted!')
+                resetForm();
+            })
+            .catch(e => {
+                console.log('ERROR:: ', e);
+            }
+        );
     }
 
     const stringifyFormData = (fd) => {
