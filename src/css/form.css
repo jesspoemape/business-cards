@@ -28,6 +28,10 @@ input {
     font-size: 100%;
 }
 
+input:focus {
+    outline: 2px solid #00cec9;
+}
+
 button {
     border: none;
     padding: 1em;
