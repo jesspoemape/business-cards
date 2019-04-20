@@ -19,7 +19,9 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
+
         console.log(stringifyFormData(data));
+        resetForm();
     }
 
     const stringifyFormData = (fd) => {
@@ -28,6 +30,22 @@ const Form = () => {
             data[key] = fd.get(key);
         }
         return JSON.stringify(data, null, 2);
+    }
+
+    const resetForm = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setJobTitle('');
+        setCompany('');
+        setPhoneNumber('');
+        setWebsite('');
+        setFacebookHandle('');
+        setInstagramHandle('');
+        setLinkedInHandle('');
+        setTwitterHandle('');
+        setPinterestHandle('');
+        setYouTubeHandle('');
     }
 
     return (
@@ -75,7 +93,7 @@ const Form = () => {
             <label>
                 <span>Email:</span>
                 <input
-                    type="text"
+                    type="email"
                     placeholder="johndoe@example.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
