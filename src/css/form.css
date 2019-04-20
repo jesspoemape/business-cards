@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    margin: 2em auto;
+    background-color: white;
+    padding: 1.5em;
+    -webkit-box-shadow: 1px 1px 12px 5px rgba(114,114,114,0.45); 
+    box-shadow: 1px 1px 12px 5px rgba(114,114,114,0.45);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+label span {
+    text-align: left;
+    padding: .5em 0;
+    font-size: 65%;
+    text-transform: uppercase;
+}
+
+input {
+    padding: 1em;
+    font-size: 100%;
+}
+
+button {
+    border: none;
+    padding: 1em;
+    font-size: 125%;
+    background-color: #e17055;
+    color: white;
+    width: 50%;
+    margin: auto;
+    transition: background-color 250ms ease-in;
+}
+
+button:hover {
+    background-color: #d63031;
+    cursor: pointer;
+}
